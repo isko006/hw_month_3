@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+</head>
+<body>
+    <div>
+        <ul>
+            {% for i in students %}
+            <h3>Students</h3>
+               <li style="margin: 20px">
+                  <div>
+                      Name: {{ i.first_name }}
+                  </div>
+                   <div>
+                       Surname: {{ i.last_name }}
+                   </div>
+               </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new post</title>
+</head>
+<body>
+<form action="/blog/create-post/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <p>
+        <label for="title">Blog title</label>
+        <input id="title" name="title" type="text">
+    </p>
+    <p>
+        <label for="description">Blog description</label>
+        <input id="description" name="description" type="text">
+    </p>
+    <p>
+        <label for="hashtags">Hastags</label>
+        <input id="hashtags" name="hashtags" type="text">
+    </p>
+    <p>
+        <label for="image">Image</label>
+        <input id="image" name="image" type="file" alt="image">
+    </p>
+
+        <input id="submit" type="submit" value="Create post">
+
+</form>
+</body>
+</html>

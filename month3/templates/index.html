@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+{% block content %}
+{% load static %}
+
+<div style="text-align:center">
+    <h1>Hello, everyone. This is my little blog</h1>
+    {% if request.user.is_authenticated %}
+
+        <span>
+            Hi! {{ request.user.first_name }}
+        </span>
+        <span>
+            <a href="http://127.0.0.1:8000/blog/create-post">Add post</a>
+        </span>
+    </div>
+    {% else %}
+    <p><a href="http://127.0.0.1:8000/users/login/">Login here</a></p>
+
+    {% endif %}
+<script>
+    function search() {
+        let searchText = document.getElementById('search-box').value;
+        let newUrl = location.protocol + '//'+ location.host + "/blog/?" + 'search=' + searchText;
+
+        location.replace(newUrl)
+    }
+   </script>
+<div>
+    <label>
+        <input type="text" id="search-box">
+    </label>
+    <button onclick="search()"> search </button>
+</div>
+
+<div style="text-align: center">
+    <form action="blog/" enctype="multipart/form-data">
+<ul>
+    {% for i in posts %}
+    <li>
+        <a href="/blog/{{ i.id }}">
+        <h3>{{ i.title }}</h3>
+        </a>
+            <p><img src="{{ i.image.url }}"></p>
+            <p>{{ i.descr }}</p>
+            <p>{{ i.hashtag }}</p>
+            <p>{{ i.comments }}</p>
+
+
+
+    </li>
+    {% endfor %}
+</ul>
+
+        <script>
+            function search() {
+            let searchText = document.getElementById('search-box').value
+            let nameUrl = location.protocol + '//' + location.host + '/blog/?' + 'search='
+            }
+        </script>
+    </form>
+    </div>
+
+{% endblock %}
